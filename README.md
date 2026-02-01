@@ -120,13 +120,43 @@ Then update the [Tampermonkey script](tampermonkey-script.js) with your API key.
 
 See [DEPLOY.md](DEPLOY.md) for detailed instructions.
 
+## Playwright Scraper
+
+Automated headless browser scraper for CondoDork:
+
+```
+scraper/
+├── condodork_scraper.py     # Main scraper logic
+├── api_client.py            # API client
+├── run_scraper.py           # CLI runner
+├── install-playwright.sh    # Install on headless Linux
+├── deploy-scraper.sh        # Deploy to production
+└── README.md                # Scraper documentation
+```
+
+### Deploy Scraper
+
+```bash
+cd scraper
+bash install-playwright.sh    # Install dependencies
+bash deploy-scraper.sh        # Deploy to server
+```
+
+### Run Scraper
+
+```bash
+python run_scraper.py --dry-run   # Test mode
+python run_scraper.py             # Production
+bash setup-cron.sh                # Schedule with cron
+```
+
 ## Next Steps
 
 - [x] Design database schema with price history
 - [x] Build FastAPI with all endpoints
 - [x] Create test suite
 - [x] Create deployment scripts
+- [x] Add Playwright scraper for CondoDork
 - [ ] Deploy to your server
 - [ ] Configure Tampermonkey with production API
-- [ ] Add Playwright scraper for CondoDork
 - [ ] Build CLI for viewing tracked listings
