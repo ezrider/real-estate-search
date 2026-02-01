@@ -1,0 +1,25 @@
+[Unit]
+Description=CondoDork Scraper Service
+After=network.target condosapi.service
+
+[Service]
+Type=oneshot
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/condosapi/scraper
+Environment="PATH=/var/www/condosapi/scraper/.venv/bin"
+EnvironmentFile=/var/www/condosapi/scraper/.env
+ExecStart=/var/www/condosapi/scraper/.venv/bin/python /var/www/condosapi/scraper/run_scraper.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=condodork-scraper
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/condosapi/scraper/logs
+
+[Install]
+WantedBy=multi-user.target

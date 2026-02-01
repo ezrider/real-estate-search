@@ -53,6 +53,8 @@ Thumbs.db
 # Logs
 *.log
 logs/
+scraper/logs/
+scraper/*.log
 
 # Environment variables
 .env
