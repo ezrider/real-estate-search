@@ -1,0 +1,29 @@
+[Unit]
+Description=Real Estate Tracker API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/condosapi/api
+Environment="PATH=/var/www/condosapi/api/.venv/bin"
+EnvironmentFile=/var/www/condosapi/api/.env
+ExecStart=/var/www/condosapi/api/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=always
+RestartSec=10
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/condosapi/photos
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=condosapi
+
+[Install]
+WantedBy=multi-user.target
