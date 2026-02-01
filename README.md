@@ -122,7 +122,9 @@ See [DEPLOY.md](DEPLOY.md) for detailed instructions.
 
 ## Playwright Scraper
 
-Automated headless browser scraper for CondoDork:
+Automated headless browser scraper for CondoDork.
+
+**New to Playwright?** Check out the [Playwright Tutorial](PLAYWRIGHT_TUTORIAL.md) - a comprehensive guide covering everything from basics to advanced patterns.
 
 ```
 scraper/
